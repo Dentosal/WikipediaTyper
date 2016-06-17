@@ -45,7 +45,7 @@ function update() {
         displayContent += displayQueue.pop();
     }
     $("#content").html(displayContent);
-    setTimeout(update, Math.floor(Math.random()*200));
+    setTimeout(update, Math.floor(Math.random()*100));
 }
 
 
