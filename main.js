@@ -17,7 +17,7 @@ function loadNext() {
 
     $.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+title+"?redirect=true").done(function(data) {
         _.each(data.extract, function(char) {
-            displayQueue.push(char);
+            displayQueue.shift(char);
         })
     }, "JSON");
 
@@ -38,7 +38,7 @@ function update() {
         loadNext();
     }
     if (displayQueue.length > 0) {
-        displayContent += displayQueue.unshift();
+        displayContent += displayQueue.pop();
     }
     $("#content").html(displayContent);
 }
