@@ -19,6 +19,7 @@ function loadNext() {
 
     $.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+title+"?redirect=true").done(function(data) {
         _.each(data.extract, function(char) {
+            console.log("GOOD");
             displayQueue.shift(char);
         })
         loading = false;
