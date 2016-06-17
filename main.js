@@ -38,6 +38,8 @@ function loadNext() {
 }
 
 function update() {
+    console.log(displayQueue);
+    return;
     if (displayQueue.length < 10 && !loading) {
         loadNext();
     }
