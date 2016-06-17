@@ -45,7 +45,6 @@ function update() {
 
 
 $(document).ready(function() {
-    alert("!!")
-    //loadNext();
-    //setInterval(update, 200);
+    loadNext();
+    setInterval(update, 200);
 });
