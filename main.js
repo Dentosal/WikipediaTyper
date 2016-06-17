@@ -1,5 +1,6 @@
 var cutEdge = (typeof(Storage) !== "undefined") && 'serviceWorker' in navigator;
 var pageQueue = ["philosophy"];
+var displayContent = "";
 var displayQueue = [];
 var visitedPages = [];
 
@@ -12,13 +13,16 @@ function loadNext() {
         console.log("EMPTY?!");
     }
     var title = normalizeTitle(pageQueue.splice(Math.random()*pageQueue.length, 1)[0]);
+    visitedPages.push(title);
 
-    $.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+title+"?redirect=true").done(function (data) {
-        $("#content").append("<p>"+data.extract+"</p>");
+    $.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+title+"?redirect=true").done(function(data) {
+        _.each(data.extract, function(char) {
+            displayQueue.push(char);
+        })
     }, "JSON");
 
     if (pageQueue.length < 1000) {
-        $.get("https://en.wikipedia.org/api/rest_v1/page/related/"+title+"?redirect=true").done(function (data) {
+        $.get("https://en.wikipedia.org/api/rest_v1/page/related/"+title+"?redirect=true").done(function(data) {
             _.each(_.pluck(data.items, "title"), function(title) {
                 var t = normalizeTitle(title);
                 if (!(_.contains(visitedPages, t) || _.contains(displayQueue, t))) {
@@ -31,5 +35,9 @@ function loadNext() {
 
 
 $(document).ready(function() {
-    setInterval(loadNext, 2500);
+    loadNext();
+    while (true) {
+        displayContent += displayQueue.pop();
+        $("#content").html(displayContent);
+    }
 });
