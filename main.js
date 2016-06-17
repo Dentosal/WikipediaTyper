@@ -5,7 +5,7 @@ var displayQueue = [];
 var visitedPages = [];
 
 function normalizeTitle(title) {
-    return title.toLowerCase().replace(" ", "_");
+    return title.replace(" ", "_");
 }
 
 function loadNext() {
