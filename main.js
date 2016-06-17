@@ -3,12 +3,14 @@ var pageQueue = ["philosophy"];
 var displayContent = "";
 var displayQueue = [];
 var visitedPages = [];
+var loading = false;
 
 function normalizeTitle(title) {
     return title.replace(" ", "_");
 }
 
 function loadNext() {
+    loading = true;
     if (pageQueue.length === 0) {
         console.log("EMPTY?!");
     }
@@ -19,6 +21,7 @@ function loadNext() {
         _.each(data.extract, function(char) {
             displayQueue.shift(char);
         })
+        loading = false;
     }, "JSON");
 
     if (pageQueue.length < 1000) {
@@ -35,7 +38,7 @@ function loadNext() {
 }
 
 function update() {
-    if (displayQueue.length < 10) {
+    if (displayQueue.length < 10 && !loading) {
         loadNext();
     }
     if (displayQueue.length > 0) {
