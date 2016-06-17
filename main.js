@@ -1,9 +1,9 @@
 var cutEdge = (typeof(Storage) !== "undefined") && 'serviceWorker' in navigator;
 var pageQueue = ["philosophy"];
-var displayContent = "";
 var displayQueue = [];
 var visitedPages = [];
 var loading = false;
+var terminal;
 
 function normalizeTitle(title) {
     return title.replace(" ", "_");
@@ -44,14 +44,14 @@ function update() {
     var c = undefined;
     if (displayQueue.length > 0) {
         c = displayQueue.pop();
-        displayContent += c;
+        terminal.print(c);
     }
-    $("#content").html(displayContent).animate({"scrollTop": $("#content")[0].scrollHeight}, {duration: "fast", queue: false});
     setTimeout(update, Math.floor(Math.random()*12.5*(c===" "?4:1)));
 }
 
 
 $(document).ready(function() {
+    terminal = term("#content");
     loadNext();
     update();
 });
