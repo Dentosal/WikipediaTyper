@@ -7,8 +7,14 @@ body {
 
 #content {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
+    font-family: "Courier New", monospace;
     height: 100%;
     width: 100%;
+    background-color: #000;
+    color: #fff;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    word-break: break-all;
 }
