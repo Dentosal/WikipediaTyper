@@ -12,9 +12,11 @@ body {
     font-family: "Courier New", monospace;
     height: 100%;
     width: 100%;
-    background-color: #000;
-    color: #fff;
     overflow-y: scroll;
     word-wrap: break-word;
     word-break: break-all;
+}
+
+#content::-webkit-scrollbar {
+    display: none;
 }
