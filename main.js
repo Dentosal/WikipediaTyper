@@ -33,11 +33,18 @@ function loadNext() {
     }
 }
 
+function update() {
+    if (displayQueue.length < 10) {
+        loadNext();
+    }
+    if (displayQueue.length > 0) {
+        displayContent += displayQueue.pop();        
+    }
+    $("#content").html(displayContent);
+}
+
 
 $(document).ready(function() {
     loadNext();
-    while (true) {
-        displayContent += displayQueue.pop();
-        $("#content").html(displayContent);
-    }
+    setInterval(update, 200);
 });
