@@ -4,6 +4,7 @@ var urlsToCache = [
     'index.html',
     'main.css',
     'main.js',
+    'terminal.js',
     'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js',
 ];
