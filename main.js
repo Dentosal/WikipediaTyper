@@ -1,7 +1,7 @@
 var cutEdge = (typeof(Storage) !== "undefined") && 'serviceWorker' in navigator;
 
 
-$.ready(function () {
+$(document).ready(function() {
     $.get("https://en.wikipedia.org/api/rest_v1/page/html/philosophy?redirect=true").success(function (data) {
         console.log("!", data);
     });
