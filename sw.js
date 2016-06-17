@@ -4,7 +4,8 @@ var urlsToCache = [
     'index.html',
     'main.css',
     'main.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js'
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js',
 ];
 
 self.addEventListener('install', function(event) {
@@ -18,7 +19,6 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
-    console.log("FETCH", event.request);
     event.respondWith(
         caches.match(event.request).then(function(response) {
             // Cache hit - return response
