@@ -15,10 +15,8 @@ self.addEventListener('install', function(event) {
             return cache.addAll(urlsToCache);
         })
     );
-    console.log("OK?");
 });
 self.addEventListener('activate', function(event) {
-    console.log("ACTIVE??");
 });
 
 self.addEventListener('fetch', function(event) {
