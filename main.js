@@ -38,13 +38,14 @@ function update() {
         loadNext();
     }
     if (displayQueue.length > 0) {
-        displayContent += displayQueue.pop();        
+        displayContent += displayQueue.pop();
     }
     $("#content").html(displayContent);
 }
 
 
 $(document).ready(function() {
+    alert("!!")
     loadNext();
     setInterval(update, 200);
 });
