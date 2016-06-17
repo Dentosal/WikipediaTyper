@@ -1,5 +1,5 @@
 var CACHE_VERSION = "1.0";
-var CACHE_NAME = 'SW_TEST_CACHE-'+CACHE_VERSION;
+var CACHE_NAME = 'WT-CACHE-'+CACHE_VERSION;
 var urlsToCache = [
     'index.html',
     'main.css',
