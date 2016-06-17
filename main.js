@@ -46,7 +46,7 @@ function update() {
         c = displayQueue.pop();
         terminal.print(c);
     }
-    setTimeout(update, Math.floor(Math.random()*12.5*(c===" "?4:1)));
+    setTimeout(update, Math.floor(Math.random()*125*(c===" "?4:1)));
 }
 
 
