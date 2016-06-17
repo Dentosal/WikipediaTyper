@@ -38,7 +38,7 @@ function update() {
         loadNext();
     }
     if (displayQueue.length > 0) {
-        displayContent += displayQueue.pop();
+        displayContent += displayQueue.unshift();
     }
     $("#content").html(displayContent);
 }
