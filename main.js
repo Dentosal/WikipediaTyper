@@ -2,7 +2,7 @@ var cutEdge = (typeof(Storage) !== "undefined") && 'serviceWorker' in navigator;
 
 
 $(document).ready(function() {
-    $.get("https://en.wikipedia.org/api/rest_v1/page/html/philosophy?redirect=true").success(function (data) {
+    $.get("https://en.wikipedia.org/api/rest_v1/page/html/philosophy?redirect=true").done(function (data) {
         console.log("!", data);
     });
     // $.ajax({
