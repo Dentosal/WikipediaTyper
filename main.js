@@ -46,7 +46,7 @@ function update() {
         c = displayQueue.pop();
         displayContent += c;
     }
-    $("#content").html(displayContent);
+    $("#content").html(displayContent).animate({"scrollTop": $("#content")[0].scrollHeight}, {duration: "fast", queue: false});
     setTimeout(update, Math.floor(Math.random()*140*(c===" "?5:1)));
 }
 
