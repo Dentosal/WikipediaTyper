@@ -47,7 +47,7 @@ function update() {
         displayContent += c;
     }
     $("#content").html(displayContent);
-    setTimeout(update, Math.floor(Math.random()*100*(1+!!(c===" "))));
+    setTimeout(update, Math.floor(Math.random()*100*(c===" "?10:1)));
 }
 
 
