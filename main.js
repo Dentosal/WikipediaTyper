@@ -19,7 +19,6 @@ function loadNext() {
 
     $.get("https://en.wikipedia.org/api/rest_v1/page/summary/"+title+"?redirect=true").done(function(data) {
         _.each(data.extract, function(char) {
-            console.log("GOOD");
             displayQueue.unshift(char); // push to beginning
         })
         loading = false;
@@ -46,10 +45,11 @@ function update() {
         displayContent += displayQueue.pop();
     }
     $("#content").html(displayContent);
+    setTimeout(update, Math.floor(Math.random()*200));
 }
 
 
 $(document).ready(function() {
     loadNext();
-    setInterval(update, 200);
+    update();
 });
