@@ -4,3 +4,11 @@ body {
     font-size: 5em;
     font-family: sans-serif;
 }
+
+#content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
