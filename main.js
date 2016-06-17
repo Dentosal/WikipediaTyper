@@ -41,11 +41,13 @@ function update() {
     if (displayQueue.length < 10 && !loading) {
         loadNext();
     }
+    var c = undefined;
     if (displayQueue.length > 0) {
-        displayContent += displayQueue.pop();
+        c = displayQueue.pop();
+        displayContent += c;
     }
     $("#content").html(displayContent);
-    setTimeout(update, Math.floor(Math.random()*100));
+    setTimeout(update, Math.floor(Math.random()*100*(1+!!(c===" "))));
 }
 
 
